@@ -6,11 +6,7 @@
 
 import './checkbox';
 
-let myToDo = [];
-
-if (localStorage.myToDo !== undefined) {
-  myToDo = JSON.parse(localStorage.myToDo);
-}
+let myToDo = JSON.parse(localStorage.myTodo) || [];
 
 // Selectors
 const list = document.getElementById('to-do-list');
@@ -78,7 +74,6 @@ function renderList() {
 function updateLocalStorage() {
   localStorage.myToDo = JSON.stringify(myToDo);
   document.location.reload();
-  return false;
 }
 
 function updateIndex() {
